@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/weather_data.dart';
 
-/// Service class for caching weather data locally
+
 class CacheService {
   static const String _weatherCacheKey = 'cached_weather_data';
   static const String _indexCacheKey = 'cached_student_index';
 
-  /// Save weather data to cache
+
   Future<void> cacheWeatherData(
     WeatherData weatherData,
     String studentIndex,
@@ -22,7 +22,7 @@ class CacheService {
     }
   }
 
-  /// Get cached weather data
+
   Future<WeatherData?> getCachedWeatherData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -38,7 +38,6 @@ class CacheService {
     return null;
   }
 
-  /// Get cached student index
   Future<String?> getCachedStudentIndex() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -49,7 +48,6 @@ class CacheService {
     return null;
   }
 
-  /// Clear all cached data
   Future<void> clearCache() async {
     try {
       final prefs = await SharedPreferences.getInstance();
