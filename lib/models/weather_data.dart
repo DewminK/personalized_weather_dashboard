@@ -1,4 +1,3 @@
-/// Model class for weather data
 class WeatherData {
   final double temperature;
   final double windSpeed;
@@ -14,7 +13,6 @@ class WeatherData {
     this.isCached = false,
   });
 
-  /// Create WeatherData from JSON response
   factory WeatherData.fromJson(Map<String, dynamic> json) {
     final currentWeather = json['current_weather'];
     return WeatherData(
@@ -25,7 +23,6 @@ class WeatherData {
     );
   }
 
-  /// Convert WeatherData to JSON for caching
   Map<String, dynamic> toJson() {
     return {
       'temperature': temperature,
@@ -35,7 +32,6 @@ class WeatherData {
     };
   }
 
-  /// Create WeatherData from cached JSON
   factory WeatherData.fromCachedJson(Map<String, dynamic> json) {
     return WeatherData(
       temperature: json['temperature'].toDouble(),
@@ -46,7 +42,6 @@ class WeatherData {
     );
   }
 
-  /// Get weather description based on WMO weather code
   String get weatherDescription {
     switch (weatherCode) {
       case 0:

@@ -5,16 +5,14 @@ import 'package:http/http.dart' as http;
 import '../models/weather_data.dart';
 import '../models/coordinates.dart';
 
-/// Service class for fetching weather data from Open-Meteo API
 class WeatherService {
   static const String baseUrl = 'https://api.open-meteo.com/v1/forecast';
 
-  /// Build the API request URL
+
   static String buildRequestUrl(Coordinates coordinates) {
     return '$baseUrl?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&current_weather=true';
   }
 
-  /// Fetch weather data from Open-Meteo API
   Future<WeatherData> fetchWeather(Coordinates coordinates) async {
     final url = buildRequestUrl(coordinates);
 
